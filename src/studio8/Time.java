@@ -1,5 +1,6 @@
 package studio8;
 
+import java.util.Objects;
 
 public class Time {
 private int hour;
@@ -22,11 +23,35 @@ else {
 }
 	
 }
-
+@Override
+public int hashCode() {
+	return Objects.hash(hour, minutes);
+}
+@Override
+public boolean equals(Object obj) {
+	if (this == obj)
+		return true;
+	if (obj == null)
+		return false;
+	if (getClass() != obj.getClass())
+		return false;
+	Time other = (Time) obj;
+	return hour == other.hour && minutes == other.minutes;
+}
 	public static void main(String[] args) {
  
     	Time a = new Time(13,32,false);
-    	System.out.print(a);
+    	Time b = new Time (1,32,true);
+    	Time c = new Time (4, 2, false);
+    	Time d = new Time(13,32,true);
+    	if(a.equals(b)) {
+    		System.out.print("yes");
+    	}
+    	else {
+    		System.out.println("no");
+    	}
+    	//System.out.print(a);
     }
+	
 
 }

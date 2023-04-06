@@ -10,7 +10,6 @@ public Date(int month, int day, int year, boolean holiday) {
 	this.day = day;
 	this.year = year;
 	this.holiday = holiday;
-	
 }
 public String toString() {
 	if (holiday == true) {
